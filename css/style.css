@@ -1,0 +1,19 @@
+
+/* ADD YOUR STYLES HERE */
+
+h1 {
+  text-align: center;
+  font-family: 'Crimson Text', serif;
+  font-weight: 200;
+  font-size: 80px;
+  margin-top: 8%;
+  margin-bottom: 5%;
+  color: black;
+}
+
+#MarxChart {
+  background: rgba(97, 97, 97, 0.53);
+  width: 100%;
+  height: 400px;
+}
+
