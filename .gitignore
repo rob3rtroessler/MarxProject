@@ -4,7 +4,7 @@ venv/*
 # other
 build/*
 *.pyc
-__pycache__
+*/__pycache__
 Vagrantfile
 *.log
 temp.txt
