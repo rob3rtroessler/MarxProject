@@ -17,7 +17,6 @@ copyfile('./data/*words.csv', './data/words.csv')
 # current strategy: just generate a csv and place it in data/words.csv
 
 
-
 @app.route("/", methods = ['POST', 'GET'])
 def home():
 	if request.method == 'POST':

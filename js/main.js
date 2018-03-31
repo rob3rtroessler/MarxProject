@@ -9,7 +9,6 @@ function switchfunc() {
 
 
 
-
 // define margins for SVG drawing area
 var marginBarchart = {top: 40, right: 40, bottom: 40, left: 40};
 var widthBarchart = $("#MarxChart").width() - marginBarchart.left - marginBarchart.right,

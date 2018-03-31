@@ -50,7 +50,6 @@ def do_marx(corpus, word_to_find, out_directory='./data/'):
 	# print("entfremdete: " + stemmer.stem('entfremdete'))
 	# print("entfremdet: " + stemmer.stem('entfremdet'))
 
-
 	# stem all occurrences of a specific word
 	word_count = len(text)
 	stemmeds = 0
