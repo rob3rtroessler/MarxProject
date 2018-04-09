@@ -1,0 +1,10 @@
+# setup your own virtual environment
+venv/*
+
+# other
+build/*
+*.pyc
+*/__pycache__
+Vagrantfile
+*.log
+temp.txt
