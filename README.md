@@ -22,13 +22,13 @@ Current setup inside my virtual environment, found in `venv`:
 
 By default, the website runs on http://localhost:5000.
 
-#### PyCharm
+### PyCharm
 If running from PyCharm, then everything should be setup in the `venv`
 subdirectory. The interpreter should be set to the python3.6 install
 inside of that folder.
 
 
-#### Command Line on Unix
+### Command Line on Unix
 
 If running from command line:
 
