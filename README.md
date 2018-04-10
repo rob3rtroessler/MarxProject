@@ -2,20 +2,9 @@
 
 Still trying to figure out a good way to set everything up.
 
-Download vagrant from vagrantup.com get a linux box.
-Get something better than Ubuntu 12.04 so you can easily install python3's pip.
+Download vagrant from vagrantup.com so we can run everything in a virtual machine.
 
-Make a vagrant install at the root of the project folder.
-
-```
-$ sudo apt-get update
-$ sudo apt-get upgrade
-$ sudo apt-get install python3-pip python3
-$ python3 -m pip install --user virtualenv
-
-```
-
-Create a python virtual environment and set it to run Python 3.
+I made a Vagrantfile that has some configuration for python3.6. If you do use Vagrant, everything should be setup. Otherwise, you'll need to create a virtual environment for the project and install all the requirements into it.
 
 Current setup inside my virtual environment:
 
