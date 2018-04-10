@@ -1,5 +1,46 @@
 /* ADD YOUR STYLES HERE */
 
+
+
+/* PAGE STYLES */
+
+#overall {
+  background-image: url("../img/Marx2.jpg");
+  background-size: 100%;
+}
+
+#CoverPage {
+  background: rgba(250, 250, 250, 0.6);
+}
+
+/* intro */
+#intro {
+    background: rgba(250, 250, 250, 0.7);
+}
+
+/* topic 1 */
+#martini-one {
+    background: rgba(240, 240, 240, 0.8);
+}
+
+/* topic 2 */
+#martini-two {
+    background: rgba(240, 240, 240, 0.9);
+}
+
+/* topic 3 */
+#martini-three {
+    background: rgba(225, 225, 225, 0.95);
+}
+
+/* dashboard */
+#dashboard {
+    background: rgba(225, 225, 225, 0.95);
+}
+
+
+/* FONT STYLES */
+
 h1 {
   text-align: center;
   font-family: 'Crimson Text', serif;
@@ -9,6 +50,18 @@ h1 {
   margin-bottom: 5%;
   color: black;
 }
+
+h2 {
+    font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+    font-weight: lighter;
+    font-size: 36px;
+    color: #727272;
+    margin-bottom: 3%;
+}
+
+
+
 
 #MarxChart {
   /*background: rgba(0, 97, 0, 0.53);*/
