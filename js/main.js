@@ -37,7 +37,7 @@ var y = d3.scaleLinear()
 
 
 // get the data
-d3.csv("data/words.csv", function(error, data) {
+d3.csv("../data/words.csv", function(error, data) {
     if (error) {throw error;}
 
 

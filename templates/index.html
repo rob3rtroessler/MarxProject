@@ -5,11 +5,15 @@
     <title>MarxProject</title>
 
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/jquery.fullpage.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/jquery.fullpage.css">
 
     <!-- own CSS files -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Custom fonts for this template -->
+
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     <script>
         function switchfunc() {
@@ -21,53 +25,95 @@
 
 
 <body>
-    <div id="fullpage">
-        <div class="section">
-            <div class="container container-fluid">
+    <div id="overall">
 
-                <!-- title -->
-                <div class="row"><h1>(Distant-)Reading Marx</h1></div>
+        <div id="fullpage">
 
-                <!-- visualization -->
-                <div class="col-xs-7 col-xs-offset-2">
-                    <div class="container" id="MarxChart"></div>
-                </div>
-                <div class="col-xs-1">
-                    <button id="switch" onclick="switchfunc()">button text</button>
-                </div>
-                <div class="col-xs-1">
-                    <form action = "http://localhost:5000/" method = "post">
-                         <p>New word</p>
-                         <p><input type = "text" name = "input_word" /></p>
-                         <p><input type = "submit" value = "submit" /></p>
-                    </form>
-                </div>
-                <div class="col-xs-2"></div>
+            <!-- COVER PAGE -->
+            <div id="CoverPage" class="section">
+                <h1>(Distant-)Reading Karl Marx</h1>
+                <h2>Ein Versuch zum Kapital</h2>
             </div>
 
 
-        </div>
+            <!-- INTRODUCTION -->
+            <div id="intro" class="section">
+                <h1>Intro</h1>
+            </div>
 
 
+            <!-- MARTINI GLASS DATA VIS, TOPIC 1 -->
+            <div id="martini-one" class="section">
+
+                <!-- slide 1 -->
+                <div class="slide">
+                    <h1>Topic I: Geld/Ware</h1>
+                    <h2>Kontext</h2>
+                </div>
+
+                <!-- slide 2 -->
+                <div class="slide">
+                    <h1>Geld/Ware - Visualizations</h1>
+                </div>
+
+            </div>
 
 
-        <div class="section">
-            Sec 2
-        </div>
-        <div class="section"></div>
+            <!-- MARTINI GLASS DATA VIS, TOPIC 2 -->
+            <div id="martini-two" class="section">
 
-    </div>
+                <!-- slide 1 -->
+                <div class="slide">
+                    <h1>Topic II: Kapital</h1>
+                    <h2>Kontext</h2>
+                </div>
+
+                <!-- slide 2 -->
+                <div class="slide">
+                    <h1>Kapital - Visualizations</h1>
+                </div>
+
+            </div>
+
+
+            <!-- FINAL VIEW: DASHBOARD -->
+            <div id="dashboard" class="section">
+                    <h1>Explore</h1>
+
+                <!-- visualization -->
+                    <div class="row">
+                        <div class="col-xs-7 col-xs-offset-2">
+                            <div class="container" id="MarxChart"></div>
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="switch" onclick="switchfunc()">button text</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <form action = "http://localhost:5000/" method = "post">
+                                <p>New word</p>
+                                <p><input type = "text" name = "input_word" /></p>
+                                <p><input type = "submit" value = "submit" /></p>
+                            </form>
+                        </div>
+                        <div class="col-xs-2"></div>
+                    </div>
+            </div>
+
+        </div> <!-- fullpage closed -->
+
+    </div> <!-- overall closed -->
+
 
     <!-- Load JS libraries -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/d3.js"></script>
-    <script src="js/jquery.fullpage.js"></script>
-    <script src="js/jquery.fullpage.extensions.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/d3.js"></script>
+    <script src="../js/jquery.fullpage.js"></script>
+    <script src="../js/jquery.fullpage.extensions.min.js"></script>
 
     <!-- own JS files -->
-    <script src="js/main.js"></script>
-    <script src="js/fullpageCustomization.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/fullpageCustomization.js"></script>
 
 </body>
 </html>
