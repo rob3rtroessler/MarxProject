@@ -8,3 +8,5 @@ build/*
 Vagrantfile
 *.log
 temp.txt
+bootstrap.sh
+data/*.csv
