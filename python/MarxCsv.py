@@ -2,7 +2,8 @@ import sys
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, RegexpTokenizer
- 
+
+
 def do_marx(corpus, word_to_find, out_directory='./data/'):
     # german stopwords
     stop_words = set(stopwords.words('german'))
@@ -37,8 +38,8 @@ def do_marx(corpus, word_to_find, out_directory='./data/'):
         if w not in stop_words:
             no_stop.append(w.lower())
 
-
-    # create NLTK text from the tokens in order to perform all the linguistic processing that NLTK allows us to do
+    # create NLTK text from the tokens in order to perform all the linguistic
+    # processing that NLTK allows us to do
     text = nltk.Text(no_stop)
 
     # word_to_find = 'entfremden'
@@ -67,11 +68,10 @@ def do_marx(corpus, word_to_find, out_directory='./data/'):
 
     # this is written inside of temp.txt
     tmp = text.concordance(stemmed_word, width=100, lines=stemmeds)
-    
+
     # reset stdout
     sys.stdout.close()
     sys.stdout = sys.__stdout__
-    
 
     # now read in the concordance
     concordance_file = open('temp.txt', 'r')
@@ -104,8 +104,6 @@ def do_marx(corpus, word_to_find, out_directory='./data/'):
 
     tokens = nltk.Text(words)
 
-
-
     # for token in tokens:
     #     print(token)
 
@@ -121,7 +119,8 @@ def do_marx(corpus, word_to_find, out_directory='./data/'):
     # print("Frequency of 'Arbeiter':", fdist.freq('arbeiter'))
 
     # TODO don't make the file if the concordance is empty/bad
-    # you shouldn't have to worry if it exists already, since the js takes care of that
+    # you shouldn't have to worry if it exists already,
+    # since the js takes care of that
     with open(out_directory + word_to_find + '.csv', 'w') as csv:
         csv.write('word,frequency')
         for w in mc10:
@@ -130,13 +129,14 @@ def do_marx(corpus, word_to_find, out_directory='./data/'):
             csv.write(out)
     csv.closed
 
-
     # fdist.plot()
 
     # dispersion plot
-    # text.dispersion_plot(["Markt", "Geld", "Kapital", "Arbeiter", "entfremden"])
+    # text.dispersion_plot(["Markt", "Geld", "Kapital", "Arbeiter",
+    # "entfremden"])
 
     # print(raw)
+
 
 if __name__ == '__main__':
 
