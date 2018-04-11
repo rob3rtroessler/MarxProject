@@ -5,7 +5,7 @@
 /* PAGE STYLES */
 
 #overall {
-  background-image: url("../img/Marx2.jpg");
+  background-image: url("../img/Workers.jpg");
   background-size: 100%;
 }
 
@@ -30,12 +30,12 @@
 
 /* topic 3 */
 #martini-three {
-    background: rgba(225, 225, 225, 0.95);
+    background: rgba(230, 230, 230, 0.95);
 }
 
 /* dashboard */
 #dashboard {
-    background: rgba(225, 225, 225, 0.95);
+    background: rgba(230, 230, 230, 1);
 }
 
 

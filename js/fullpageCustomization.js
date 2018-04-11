@@ -4,7 +4,7 @@ $(document).ready(function() {
         menu: '#menu',
         lockAnchors: false,
         anchors:['Intro', 'MartiniOne', 'MartiniTwo' , 'MartiniThree', 'MartiniFour', 'DashBoard', 'Disclaimer'],
-        navigation: true,
+        navigation: false,
         navigationPosition: 'right',
         //navigationTooltips: ['Intro', 'Facts', 'Vis 1', 'Vis 2', 'Vis 3', 'Moving Forward', 'Recommendations'],
         showActiveTooltip: false,
@@ -45,7 +45,7 @@ $(document).ready(function() {
         recordHistory: true,
 
         //Design
-        controlArrows: false,
+        controlArrows: true,
         verticalCentered: true,
         //sectionsColor : ['#ccc','#ccc', '#ccc', '#ccc'],
         paddingTop: '0em',
