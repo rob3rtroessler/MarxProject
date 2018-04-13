@@ -12,7 +12,7 @@ var svg = d3.select("#ExampleBrushingAndFrequencyChart").append("svg")
 
 g = svg.append("g").attr("transform", "translate(" + BrushMargin.left + "," + BrushMargin.top + ")");
 
-var x = d3.scaleLinear().range([0, BrushWidth]),
+var x = d3.scaleLinear().range([0, BrushWidth]).domain([0,20]),
     y = d3.randomNormal(BrushHeight / 2, BrushHeight / 8);
 
 var brush = d3.brushX()
@@ -52,7 +52,7 @@ var handle = gBrush.selectAll(".handle--custom")
         .startAngle(0)
         .endAngle(function(d, i) { return i ? Math.PI : -Math.PI; }));
 
-gBrush.call(brush.move, [0.3, 0.5].map(x));
+gBrush.call(brush.move, [0, 8].map(x));
 
 function brushmoved() {
     var s = d3.event.selection;
