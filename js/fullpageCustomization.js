@@ -3,7 +3,7 @@ $(document).ready(function() {
         //Navigation
         menu: '#menu',
         lockAnchors: false,
-        anchors:['Intro', 'MartiniOne', 'MartiniTwo' , 'MartiniThree', 'MartiniFour', 'DashBoard', 'Disclaimer'],
+        anchors:['CoverPage', 'Intro', 'MartiniOne', 'MartiniTwo' , 'MartiniThree', 'DashBoard'],
         navigation: false,
         navigationPosition: 'right',
         //navigationTooltips: ['Intro', 'Facts', 'Vis 1', 'Vis 2', 'Vis 3', 'Moving Forward', 'Recommendations'],
@@ -69,16 +69,7 @@ $(document).ready(function() {
         afterRender: function(){},
         afterResize: function(){},
         afterResponsive: function(isResponsive){},
-        afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){
-
-            console.log(anchorLink, index, slideAnchor, slideIndex);
-            if(anchorLink === 'MartiniOne'){
-                CourseCount();
-
-            }
-        },
-
-        onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){}
+               onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){}
     });
 });
 

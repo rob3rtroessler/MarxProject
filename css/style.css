@@ -9,12 +9,12 @@
   background-size: 100%;
 }
 
-#CoverPage {
+#cover-page {
   background: rgba(250, 250, 250, 0.6);
 }
 
 /* intro */
-#intro {
+#intro-page {
     background: rgba(250, 250, 250, 0.7);
 }
 
@@ -61,7 +61,18 @@ h2 {
 }
 
 
+/* DRAWING AREAS */
 
+#ExampleLineChart {
+    /*background: rgba(0, 97, 0, 0.53);*/
+    width: 100%;
+    height: 300px;
+}
+
+#ExampleBrushingAndFrequencyChart {
+    width: 100%;
+    height: 200px;
+}
 
 #MarxChart {
   /*background: rgba(0, 97, 0, 0.53);*/
