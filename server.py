@@ -2,7 +2,7 @@ import os
 from shutil import copyfile
 from flask import (Flask, request, session, g, redirect, url_for, abort,
                    render_template, flash, current_app, send_from_directory)
-from python import MarxCsv
+from python import MarxBarchartCsv as mbc
 
 app = Flask(__name__)
 
@@ -25,8 +25,8 @@ def home():
         if os.path.isfile('./data/' + word + '.csv'):
             print('file exists')
         else:
-            MarxCsv.do_marx('./corpus/marx_kapital01_1867.txt',
-                            word, out_directory='./data/')
+            mbc.marx_concordance('./corpus/marx_kapital01_1867.txt',
+                                 word, out_directory='./data/')
 
         # TODO: instead of reloading page, send a callback
         #   saying to load the file!
