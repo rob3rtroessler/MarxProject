@@ -8,7 +8,7 @@ var ExampleMargin = {top: 50, right: 70, bottom: 50, left: 70},
 
 
 
-d3.csv("../data/hl/arbeit.csv", function(csv) {
+d3.csv("../data/hl/arbeit2.csv", function(csv) {
 
     csv.forEach(function(d){
         d.x = +d.x;
