@@ -31,7 +31,7 @@ var circle = g.append("g")
     .enter().append("circle")
     .attr("cx", function (d) { return d * BrushWidth})
     .attr("cy", BrushHeight/2)
-    .attr("r", 1);
+    .attr("r", 0.1);
 
 var gBrush = g.append("g")
     .attr("class", "brush")
