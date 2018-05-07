@@ -24,6 +24,7 @@ var line = d3.line()
 // An array of objects of length N. Each object has key -> value pair, the key being "y" and the value is a random number
 var dataset = d3.range(n).map(function(d) { return {"y": d3.randomUniform(1)() } });
 
+console.log("test");
 console.log(dataset);
 
 // Add the SVG to the page and employ
