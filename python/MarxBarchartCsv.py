@@ -4,7 +4,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, RegexpTokenizer
 
 
-def do_marx(corpus, word_to_find, out_directory='./data/'):
+def marx_concordance(corpus, word_to_find, out_directory='./data/'):
     # german stopwords
     stop_words = set(stopwords.words('german'))
     stop_words.add('dass')
@@ -87,7 +87,7 @@ def do_marx(corpus, word_to_find, out_directory='./data/'):
 
     no_stop = []
     for w in conc_tokens:
-        if w not in stop_words:
+        if w not in stop_words and not w.isdigit():
             no_stop.append(w.lower())
 
     import enchant
@@ -113,7 +113,9 @@ def do_marx(corpus, word_to_find, out_directory='./data/'):
 
     # calculate frequency distribution
     fdist = nltk.FreqDist(tokens)
-    mc10 = fdist.most_common(10)
+    print(fdist.most_common(10000))
+    print(len(fdist.most_common(10000)))
+    mc10 = fdist.most_common(20)
     # print("Most frequent words:", mc10)
     # print("Arbeiter:", fdist['arbeiter'])
     # print("Frequency of 'Arbeiter':", fdist.freq('arbeiter'))
@@ -127,7 +129,6 @@ def do_marx(corpus, word_to_find, out_directory='./data/'):
             csv.write('\n')
             out = "{},{}".format(w[0], w[1])
             csv.write(out)
-    csv.closed
 
     # fdist.plot()
 
@@ -141,4 +142,6 @@ def do_marx(corpus, word_to_find, out_directory='./data/'):
 if __name__ == '__main__':
 
     word = input('what word: ')
-    do_marx(word)
+    corpus = input('what corpus: ')
+    print('doing ({}) ({})'.format(word, corpus))
+    marx_concordance(corpus, word)
