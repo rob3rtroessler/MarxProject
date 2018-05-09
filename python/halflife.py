@@ -1,17 +1,18 @@
-# halflife.py
-# single word, checking for relevance
-# Character 0x0C is a page break, also called a form feed
+# halflife3.py
+# single word, checking for concept relevance over time
 
 import sys
 import math
 import nltk
 from nltk.tokenize import RegexpTokenizer
+import matplotlib.pyplot as plt
 
 
-def get_halflife(corpus, word_to_find):
+def get_halflife3(corpus, word_to_find):
 
-    # for case-insensitivity
-    word_to_find = word_to_find.lower()
+    # stem the word, to universalize the idea of it
+    stemmer = nltk.stem.snowball.GermanStemmer()
+    stemmed_word = stemmer.stem(word_to_find).lower()
 
     with open(corpus, 'rU', encoding='utf8') as file:
         raw_corpus = file.read()
@@ -21,73 +22,75 @@ def get_halflife(corpus, word_to_find):
     raw_corpus = raw_corpus.replace('\n', ' ')
 
     tokenizer = RegexpTokenizer(r'\w+')
-
     words = tokenizer.tokenize(raw_corpus)
+
+    graphx, graphy, csv_lines = [], [], []
+    hit_counter = prev_hit_x = 0
+    y = vel = 0.
+    decay_constant = 160.
     num_words = len(words)
-    growth_ticks = 0
-    t0_grow = 0
-    t0_decay = 0
-    c_grow = 1
-    c_decay = 0
-    y = velocity = 0
-    lam = 1
-    entries = []
-    graph = []
-    counter = 0
     for x in range(num_words):
-        if word_to_find == words[x].lower():
-            # hit
-            growth_ticks = 5
-            t0_grow = x
-            c_grow = y
-            t0_decay = x
-            c_decay = x
-            entries.append(x)
-            counter += 1
-        # everything else
-        if growth_ticks > 0:
-            # do some growth stuff
-            y = 1 + c_grow * math.exp(1 * lam * (x - t0_grow))
-            c_decay = y
-            t0_decay = x
-            growth_ticks -= 1
-        else:
-            # not growing: either fast for or half life decay
 
-            # half life
-            y = c_decay * math.exp(-1 * lam * (x - t0_decay))
-            c_grow = y
-            t0_grow = x
+        # how long have we gone without seeing this word?
+        dist = x - prev_hit_x
 
-        if y > 1.1:
-            graph.append((x, y))
+        # hit: process 'activation':
+        is_hit = stemmed_word == stemmer.stem(words[x]).lower()
+        if is_hit:
+            hit_counter += 1
+            vel = 0
+            y += 20
+            prev_hit_x = x
 
-    print(entries)
-    print(counter)
-    print(graph)
+        # process 'decay':
+        # smooth out the 'landing'
+        if y + 50*vel < 0:
+            vel *= 0.5
 
-    '''
-    with open(out_directory + word_to_find + '.csv', 'w') as csv:
-        csv.write('word,frequency')
-        for w in mc10:
-            csv.write('\n')
-            out = "{},{}".format(w[0], w[1])
-            csv.write(out)
-    '''
-    with open('./data/hl/' + word_to_find + '.csv', 'w') as csv:
-        csv.write('x,y')
-        for x, y in graph:
-            csv.write('\n')
-            out = "{},{}".format(x, y)
-            csv.write(out)
+        y += vel
+
+        # new velocity: subtract by dist/c
+        vel -= dist/decay_constant * 3
+
+        # don't let it go below the 'ground'
+        if y <= 0:
+            y = 0
+            if vel < 0:
+                vel = 0
+
+        # after processing, save data only for hits
+        if is_hit:
+            graphx.append(x)
+            graphy.append(y)
+            # we're only taking 5 words on either side for the quote
+            quote = words[x-5:x+5]
+            csv_lines.append([x, int(y), quote])
+
+    do_output = True
+    if do_output:
+        with open('./data/half_life/' + word_to_find + '.csv', 'w') as csv:
+            csv.write('x,y,quote')
+            for x, y, quote in csv_lines:
+                csv.write('\n')
+
+                # build sentence from the tokens
+                quote_string = quote[0]
+                for word in quote[1:]:
+                    quote_string += ' ' + word
+
+                out = "{},{},{}".format(x, y, quote_string)
+                csv.write(out)
+
+    fig = plt.figure()
+    axes = fig.add_subplot(111)
+    axes.plot(graphx, graphy)
+    plt.show()
 
 
 if __name__ == '__main__':
 
     word = input('word: ')
     corpus = input('corpus: ')
-    get_halflife(corpus, word)
-
-
-
-
+    if corpus == 'd':
+        corpus = './corpus/DasKapitalCleaner.txt'
+    get_halflife3(corpus, word)

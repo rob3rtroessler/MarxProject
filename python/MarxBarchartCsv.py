@@ -4,7 +4,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, RegexpTokenizer
 
 
-def marx_concordance(corpus, word_to_find, out_directory='./data/'):
+def marx_concordance(corpus, word_to_find, out_directory='./data/barchart/'):
     # german stopwords
     stop_words = set(stopwords.words('german'))
     stop_words.add('dass')
@@ -142,6 +142,8 @@ def marx_concordance(corpus, word_to_find, out_directory='./data/'):
 if __name__ == '__main__':
 
     word = input('what word: ')
-    corpus = input('what corpus: ')
+    corpus = input('what corpus? "d" for default: ')
+    if corpus == 'd':
+        corpus = './corpus/DasKapitalCleaner.txt'
     print('doing ({}) ({})'.format(word, corpus))
     marx_concordance(corpus, word)
