@@ -74,6 +74,10 @@ h2 {
     height: 200px;
 }
 
+#HalfLifeGeldChart{
+    width: 100%;
+    height: 400px;
+}
 
 #MarxChart {
   /*background: rgba(0, 97, 0, 0.53);*/
